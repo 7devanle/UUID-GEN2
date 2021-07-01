@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UiController {
 	@Autowired
 	uuidrepo repo;
-	@GetMapping("generator")
+	@GetMapping("/")
 	public String generator() {
 		return "uiidgen";
 	}
