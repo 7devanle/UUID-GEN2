@@ -21,6 +21,7 @@ public class UiController {
 		repo.save(uuid);
 		return "result";
 }
+
 	@PostMapping("/UUIDs")
 	public ModelAndView viewUUIDS(@RequestParam int id ) {
 		ModelAndView mv = new ModelAndView("retrieve");
