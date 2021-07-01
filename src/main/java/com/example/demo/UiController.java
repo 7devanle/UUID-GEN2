@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UiController {
 	@Autowired
 	uuidrepo repo;
+	
 	@GetMapping("/")
 	public String generator() {
 		return "uiidgen";
@@ -22,12 +23,18 @@ public class UiController {
 		return "result";
 }
 
-	@PostMapping("/UUIDs")
-	public ModelAndView viewUUIDS(@RequestParam int id ) {
-		ModelAndView mv = new ModelAndView("retrieve");
-		UUIDClass uuid = repo.findById(id).orElse(null);
-		mv.addObject(uuid);
-		return mv;
+//	@PostMapping("/retrieve")
+//	public ModelAndView viewUUIDS(@RequestParam int id ) {
+//		ModelAndView mv = new ModelAndView("retrieve");
+//		UUIDClass uuid = repo.findById(id).orElse(null);
+//		mv.addObject(uuid);
+//		return mv;
+//	}
+	
+	@PostMapping("allUUIDS")
+	@ResponseBody
+	public String postUuids() {
+		return repo.findAll().toString();
 	}
 
 }
