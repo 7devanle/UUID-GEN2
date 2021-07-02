@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="result" method="post">
-		CLICK TO GENERATE <input type="submit" name="Submit" value="Gnerate UUID">
+	<form action="uiidgen" method="post">
+		ID<input type="number", name="id">
+		CLICK TO GENERATE <input type="submit" name="Submit" value="Generate UUID">
 	</form>
 </body>
 </html>

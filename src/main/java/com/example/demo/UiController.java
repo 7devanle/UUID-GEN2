@@ -1,8 +1,9 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 //import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,15 +13,15 @@ public class UiController {
 	@Autowired
 	uuidrepo repo;
 	
-	@GetMapping("/")
+	@RequestMapping("/")
 	public String generator() {
 		return "uiidgen";
 	}
 
-	@RequestMapping("generated")
+	@RequestMapping("/uiidgen")
 	public String generated(UUIDClass uuid) {
 		repo.save(uuid);
-		return "result";
+		return "uiidgen";
 }
 
 //	@PostMapping("/retrieve")
@@ -31,10 +32,9 @@ public class UiController {
 //		return mv;
 //	}
 	
-	@PostMapping("allUUIDS")
+	@RequestMapping("/UUID/list")
 	@ResponseBody
-	public String postUuids() {
-		return repo.findAll().toString();
-	}
-
+	public List<UUIDClass> getUUids() {
+		return repo.findAll();
+		}
 }
